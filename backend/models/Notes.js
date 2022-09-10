@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-const { Schema } = mongoose;
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 const NotesSchema = new Schema({
   title: {
@@ -12,12 +12,12 @@ const NotesSchema = new Schema({
   },
   tag: {
     type: String,
-    default: "Genenral",
+    default: 'Genenral',
   },
   date: {
     type: Date,
     default: Date.now,
   },
-});
+})
 
-mongoose.exports = mongoose.model("notes", NotesSchema);
+module.exports = mongoose.model('notes', NotesSchema)
