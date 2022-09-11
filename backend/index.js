@@ -1,7 +1,7 @@
 const connectToMongo = require('./db')
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 5000
 
 connectToMongo()
 app.get('/', (req, res) => {
@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server running on http://localhost:${port}`)
 })
 
 // We use this to access req.body in our routes
