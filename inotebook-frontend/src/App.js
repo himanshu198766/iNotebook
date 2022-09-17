@@ -9,10 +9,12 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <Routes>
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/" element={<Home />} />
-        </Routes>
+        <div className="conatainer">
+          <Routes>
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/" element={<Home />} />
+          </Routes>
+        </div>
       </Router>
     </>
   );
