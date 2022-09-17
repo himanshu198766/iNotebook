@@ -2,12 +2,14 @@ const connectToMongo = require('./db')
 const express = require('express')
 const app = express()
 const port = 5000
-
+const cors = require('cors')
 connectToMongo()
 app.get('/', (req, res) => {
   console.log('called me')
   res.send('Hello World!')
 })
+
+app.use(cors())
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`)

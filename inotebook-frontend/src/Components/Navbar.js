@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from 'react'
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
-  let location = useLocation();
-  useEffect(() => {}, [location]);
+  let location = useLocation()
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,7 +27,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
-                    location.pathname === "/" ? "active" : ""
+                    location.pathname === '/' ? 'active' : ''
                   }`}
                   aria-current="page"
                   to="/"
@@ -39,7 +38,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
-                    location.pathname === "/about" ? "active" : ""
+                    location.pathname === '/about' ? 'active' : ''
                   }`}
                   to="/about"
                 >
@@ -51,7 +50,7 @@ const Navbar = () => {
         </div>
       </nav>
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

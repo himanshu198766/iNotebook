@@ -1,21 +1,21 @@
-import React, { useContext, useState } from "react";
-import noteContext from "../Context/Notes/NoteContext";
+import React, { useContext, useState } from 'react'
+import noteContext from '../Context/Notes/NoteContext'
 
 const AddNote = () => {
-  const context = useContext(noteContext);
-  const { addNote } = context;
+  const context = useContext(noteContext)
+  const { addNote } = context
   const [note, setNote] = useState({
-    title: "",
-    description: "",
-    tag: "default",
-  });
+    title: '',
+    description: '',
+    tag: 'default',
+  })
   const handleClick = (e) => {
-    e.preventDefault();
-    addNote(note.title, note.description, note.tag);
-  };
+    e.preventDefault()
+    addNote(note.title, note.description, note.tag)
+  }
   const onChange = (e) => {
-    setNote({ ...note, [e.target.name]: e.target.value });
-  };
+    setNote({ ...note, [e.target.name]: e.target.value })
+  }
   return (
     <>
       <div className="container mt-3">
@@ -50,6 +50,23 @@ const AddNote = () => {
             />
           </div>
 
+          <div className="mb-3">
+            <label
+              htmlFor="exampleInputPassword1"
+              name="tag"
+              className="form-label"
+            >
+              Tag
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="tag"
+              id="tag"
+              onChange={onChange}
+            />
+          </div>
+
           <button
             type="submit"
             className="btn btn-primary"
@@ -60,7 +77,7 @@ const AddNote = () => {
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default AddNote;
+export default AddNote
