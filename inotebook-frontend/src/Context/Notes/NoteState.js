@@ -22,6 +22,7 @@ const NoteState = (props) => {
 
     setNotes(notes.concat(note))
   }
+  
 
   const getAllNotes = async (title, description, tag) => {
     const response = await fetch(`${host}api/notes/fetchallnotes`, {
