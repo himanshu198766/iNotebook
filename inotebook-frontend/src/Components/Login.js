@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
   let navigate = useNavigate()
   const handleSubmit = async (e) => {
@@ -22,11 +22,11 @@ const Login = () => {
     const json = await response.json()
     if (json.success) {
       // redirect
-      localStorage.setItem('token', json.authtoken)
-
+      localStorage.setItem('token', json.authToken)
       navigate('/')
+      props.showAlert('Logged in Successfully', 'success')
     } else {
-      alert('Invalid Credentials')
+      props.showAlert('Invalid Credentials', 'danger')
     }
     console.log(json)
   }
@@ -35,7 +35,8 @@ const Login = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
   return (
-    <>
+    <div className="mt-5">
+      <h2>Login to continue to iNotebook</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -69,7 +70,7 @@ const Login = () => {
           Submit
         </button>
       </form>
-    </>
+    </div>
   )
 }
 
