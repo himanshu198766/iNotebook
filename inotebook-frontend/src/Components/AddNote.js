@@ -7,11 +7,16 @@ const AddNote = () => {
   const [note, setNote] = useState({
     title: '',
     description: '',
-    tag: 'default',
+    tag: '',
   })
   const handleClick = (e) => {
     e.preventDefault()
     addNote(note.title, note.description, note.tag)
+    setNote({
+      title: '',
+      description: '',
+      tag: '',
+    })
   }
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value })
@@ -31,6 +36,7 @@ const AddNote = () => {
               id="title"
               name="title"
               onChange={onChange}
+              value={note.title}
             />
           </div>
           <div className="mb-3">
@@ -47,6 +53,7 @@ const AddNote = () => {
               name="description"
               id="description"
               onChange={onChange}
+              value={note.description}
             />
           </div>
 
@@ -64,6 +71,7 @@ const AddNote = () => {
               name="tag"
               id="tag"
               onChange={onChange}
+              value={note.tag}
             />
           </div>
 
@@ -72,7 +80,7 @@ const AddNote = () => {
             className="btn btn-primary"
             onClick={handleClick}
           >
-            Submit
+            Add Note
           </button>
         </form>
       </div>
